@@ -1,6 +1,6 @@
 # Toning_example
 
-Example for the implementing Toning filter on Iamge using shaders. original copy of the javascript library from https://github.com/PixiColorEffects/pixi-color-effects/blob/main/src/filters/toning/index.ts
+Example for the implementing Toning filter on Image using shaders. original copy of the javascript library from https://github.com/PixiColorEffects/pixi-color-effects/blob/main/src/filters/toning/index.ts
 
 ### Shader
 
