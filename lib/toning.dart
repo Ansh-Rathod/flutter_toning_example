@@ -2,6 +2,7 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:toning_example/bmp_header.dart';
 
 class ToningWidget extends StatelessWidget {
   final Widget Function(BuildContext, ui.Image, Widget child) builder;
@@ -35,7 +36,9 @@ Future<ui.Image> loadToningImage(Color lightColor, Color darkColor) async {
 
   // something is wrong here
   // says Imagedata is not valid.
-  final rawImage = await decodeImageFromList(paletteMap);
+  Bmp32Header img = Bmp32Header.setHeader(256, 1);
+  img.storeBitmap(paletteMap);
+  final rawImage = await decodeImageFromList(img.bmp);
 
   return rawImage;
 }
@@ -51,6 +54,7 @@ Uint8List fillPaletteMap(
     image[4 * s + 1] =
         (lightColor.green * i + darkColor.green * (1 - i)).round();
     image[4 * s + 2] = (lightColor.blue * i + darkColor.blue * (1 - i)).round();
+    image[4 * s + 3] = 255;
   }
 
   return image;
