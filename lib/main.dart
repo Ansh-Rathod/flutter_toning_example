@@ -49,11 +49,12 @@ class ToningExample extends StatelessWidget {
             builder: (BuildContext context, ui.Image paletteMap, Widget child) {
               return AnimatedSampler(
                 (image, size, canvas) {
-                  shader.setImageSampler(0, image);
-                  shader.setImageSampler(1, paletteMap);
-                  shader.setFloat(0, size.width);
-                  shader.setFloat(1, size.height);
-                  shader.setFloat(2, 1);
+                  shader
+                    ..setImageSampler(0, image)
+                    ..setImageSampler(1, paletteMap)
+                    ..setFloat(0, size.width)
+                    ..setFloat(1, size.height)
+                    ..setFloat(2, 1); // value
 
                   canvas.drawRect(
                     Rect.fromLTWH(0, 0, size.width, size.height),
