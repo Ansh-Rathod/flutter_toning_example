@@ -54,7 +54,7 @@ class ToningExample extends StatelessWidget {
                     ..setImageSampler(1, paletteMap)
                     ..setFloat(0, size.width)
                     ..setFloat(1, size.height)
-                    ..setFloat(2, 1); // value
+                    ..setFloat(2, 0.7); // value
 
                   canvas.drawRect(
                     Rect.fromLTWH(0, 0, size.width, size.height),
